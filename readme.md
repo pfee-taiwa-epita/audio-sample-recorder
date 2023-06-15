@@ -30,3 +30,7 @@ http://localhost:3000/
 - **Stanley Schillaci**
 - **Adam Mammar**
 - **Charles Stephann**
+
+## Projet de Fin d'Etudes en Entreprise (PFEE)
+- Référent: **Julien Boyer**
+- Entreprise: **Taiwa**
