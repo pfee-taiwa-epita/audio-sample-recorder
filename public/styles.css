@@ -1,0 +1,64 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.appContainer {
+  margin-right: 20%;
+  margin-left: 20%; 
+}
+
+
+.mainTitle {
+  text-align: center;
+  font-size: 32px;
+  color: #ffffff;
+  padding: 20px;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(90deg, rgba(32,175,100,1) 35%, rgba(23,199,200,1) 100%);
+}
+
+#root {
+  min-height: 100%;
+}
+
+.rowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.rowContainer > * {
+  margin: 0 5%;
+  width: 100%;
+}
+
+.selectLabel {
+  width: 50%;
+}
+
+.containerSample {
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.inputSample {
+  width: 20%;
+  margin-left: 10px;
+}
+
+.textSample {
+  color: white;
+}

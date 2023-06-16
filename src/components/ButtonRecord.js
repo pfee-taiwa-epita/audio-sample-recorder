@@ -1,8 +1,12 @@
 import React from "react";
 
+import { Button, Space } from "antd";
+import { AudioOutlined } from "@ant-design/icons";
+import ProgressBar from "./ProgressBar";
+
 export default function ButtonRecord({handleStartRecording, handleStopRecording, isRecording, addRecords, nbSample}){
     const [index, setIndex] = React.useState(0);
-
+    const [loadings, setLoadings] = React.useState(false);
 
     let mediaRecorder = null;
     let audioChunks = [];
@@ -39,6 +43,7 @@ export default function ButtonRecord({handleStartRecording, handleStopRecording,
     }; 
 
     const multipleRecordAudio = async () => {
+        setLoadings(true)
         handleStartRecording();
         for (let i = 0; i < nbSample; i++) {
             setIndex(i+1);
@@ -54,13 +59,20 @@ export default function ButtonRecord({handleStartRecording, handleStopRecording,
             resolve();
         }, 1000);
         });
+        setLoadings(false)
     }
 
     return (
         <div>
-            <button onClick={multipleRecordAudio} disabled={isRecording}>Start Recording</button>
+            <Button type='primary' loading={loadings} onClick={multipleRecordAudio} disabled={isRecording || nbSample <= 0}><AudioOutlined />Start Recording </Button>
+            
             {isRecording ? (
-                <div>{index} / {nbSample}</div>
+                <div>
+                    <Space>
+                        <ProgressBar index={index} nbSample={nbSample} />
+                    </Space>
+                </div>
+                
             ) : null}
         </div>
     );
