@@ -4,7 +4,6 @@ import SelectEntry from "./components/SelectLabel";
 import ButtonRecord from "./components/ButtonRecord";
 import AudioList from "./components/AudioList";
 import NbSample from "./components/NbSample";
-import ExportToGoogleDrive from "./components/ExportToGoogleDrive";
 
 function App() {
   const [label, setLabel] = React.useState("Sapin");
@@ -19,8 +18,8 @@ function App() {
 ]);
 
 
-  const handleLabelChange = (event) => {
-    setLabel(event.target.value);
+  const handleLabelChange = (value) => {
+    setLabel(value);
     console.log("[APP.js] handleLabelChange -> label changed");
   };
 
@@ -79,18 +78,16 @@ function App() {
 
 
   return ( 
-    <div>
-      <h1>Audio Recorder</h1>
+    <div className="appContainer">
+      <h1 className="mainTitle">Audio Recorder</h1>
       
-      <SelectEntry label={label} handleLabelChange={handleLabelChange} labelList={labelList}/>
-      <NbSample nbSample={nbSample} handleUpdateNbSample={(e) => setNbSample(e.target.value)}/>
-      <ButtonRecord handleStartRecording={handleStartRecording} handleStopRecording={handleStopRecording} isRecording={isRecording} addRecords={addRecords} nbSample={nbSample}/>
-      <AudioList records={records} label={label} deleteRecord={deleteRecord}/>
-
-      <button onClick={printRecordList}>Debug boutton -> print records list</button>
-
-      <ExportToGoogleDrive records={records}/>
-
+      <div className="rowContainer">
+        <SelectEntry label={label} handleLabelChange={handleLabelChange} labelList={labelList} />
+        <NbSample nbSample={nbSample} handleUpdateNbSample={(e) => setNbSample(e.target.value)} />
+        <ButtonRecord handleStartRecording={handleStartRecording} handleStopRecording={handleStopRecording} isRecording={isRecording} addRecords={addRecords} nbSample={nbSample} />
+      </div>
+      
+      <AudioList records={records} label={label} deleteRecord={deleteRecord} />
     </div>
   );
 }
