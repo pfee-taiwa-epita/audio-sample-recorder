@@ -4,6 +4,7 @@ import SelectEntry from "./components/SelectLabel";
 import ButtonRecord from "./components/ButtonRecord";
 import AudioList from "./components/AudioList";
 import NbSample from "./components/NbSample";
+import ExportToGoogleDrive from "./components/ExportToGoogleDrive";
 
 function App() {
   const [label, setLabel] = React.useState("Sapin");
@@ -88,7 +89,9 @@ function App() {
       </div>
       
       <AudioList records={records} label={label} deleteRecord={deleteRecord} />
+      <ExportToGoogleDrive records={records} />
     </div>
   );
 }
 export default App;
+
